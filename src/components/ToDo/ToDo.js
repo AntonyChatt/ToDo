@@ -8,12 +8,17 @@ import Task from '../TaskCard/TaskCard.js'
 
 let length=0;
 
-
+function callBack (value) {
+  
+  
+    console.log('call back', value);
+  
+}
 
 
 function ToDo (props) {
   length = props.testStore.length;
-  console.log(props.testStore)
+  
     return (
       
       <div className="to-do ">
@@ -21,8 +26,9 @@ function ToDo (props) {
         <div className="task__list">
             <div className="list">
             
-              {props.testStore.map((track, index) =>
-                <Task />
+              {props.testStore.map((data, index) =>
+                
+                <Task key={index} info={data} cell={callBack} />
               )}
               
             </div>

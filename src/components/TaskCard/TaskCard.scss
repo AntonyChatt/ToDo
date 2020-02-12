@@ -1,0 +1,74 @@
+.task-card {
+    min-width: 260px;
+    min-height: 150px;
+    width: 53vh;
+    background-color: #fff;
+    color: #4B0082;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 10px;
+    position: relative;
+    
+}
+
+.task-card__edit,
+.task-card__add,
+.task-card__type-yandex,
+.task-card__type-trello,
+.task-card__delete {
+    position: absolute;
+    width: 35px;
+}
+
+.task-card__text-label{
+    word-wrap: break-word;   
+}
+
+.task-card__text{    
+    padding-left: 10px;
+    padding-bottom: 40px;
+    width: 85%;
+}
+
+.task-card__add,
+.task-card__type-yandex,
+.task-card__type-trello{
+    display: none;
+}
+
+.task-card__time-calendar{
+    width: 35px;
+}
+
+.task-card__edit{
+    top: 15px;
+    right: 15px;
+}
+
+.task-card__time-date{
+    display: block;
+}
+
+.task-card__time{
+    position: absolute;
+    bottom: 5px;
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.task-card__delete{
+    right: 10px;
+    bottom: 5px;
+}
+
+.task-card__delete:hover{
+    background-color: rgba(178,34,34,.2);
+    box-shadow: 0 0 10px rgba(178,34,34,.5);
+}
+
+.task-card__edit:hover{
+    background-color: rgba(0,255,127,.2);
+    box-shadow: 0 0 10px rgba(0,255,127,.5);
+}
+

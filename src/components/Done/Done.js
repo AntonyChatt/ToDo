@@ -4,22 +4,29 @@ import './Done.scss';
 
 import Task from '../TaskCard/TaskCard.js'
 
-function Done () {
+import { connect } from 'react-redux';
+
+let length=0;
+
+function Done (props) {
+  length = props.testStore.length;
+  //console.log(props.testStore)
     return (
       <div className="done task">
-        <span>Done List</span>
+        <span>Done List {length}</span>
         <div className="task__list">
-          <Task />      
-          <Task />
-          <Task />
-          <Task />
-          <Task />   
-          <Task />
-          <Task />
-          <Task />
+        {props.testStore.map((data, index) =>
+                
+                <Task key={index} info={data} />
+              )}
         </div>
       </div>
     );
   }
   
-  export default Done;
+  export default connect (
+    state => ({
+      testStore: state
+    }),
+    dispatch => ({})
+  )(Done);

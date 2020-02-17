@@ -2,12 +2,14 @@ import React from 'react';
 
 import './TaskCard.scss';
 
-import add from '../../assets/add.svg';
 import edit from '../../assets/edit.svg';
 import calendar from '../../assets/calendar.svg';
 import yandex from '../../assets/yandex.svg';
 import trello from '../../assets/trello.svg';
+import nul from '../../assets/null.svg';
 import del from '../../assets/delete.svg';
+
+let type;
 
 function editTask () {
   console.log('lets edit task card');
@@ -34,8 +36,18 @@ function getCreateTime(time){
 
 
 function Task (props) {
- console.log(props);
- //props.cell(1);
+ if (props.info.type === 'Yandex'){
+    type = yandex;
+ }
+ if (props.info.type === 'Trello'){
+  type = trello;
+  }
+if (props.info.type === 'Default'){
+   type = nul;
+ }
+
+
+ 
   
     return (
       
@@ -44,7 +56,6 @@ function Task (props) {
     <span className="task-card__text-label">{props.info.label}</span>           
         </div>
         <div className="task-card__edit" onClick={editTask}><img src={edit} alt="Edit"/></div>
-        <div className="task-card__add"><img src={add} alt="Add"/></div>
         <div className="task-card__time">
           <div className="task-card__time-calendar" onClick ={()=>{
             if (props.cell){
@@ -54,8 +65,11 @@ function Task (props) {
           }}><img src={calendar} alt="Calendar"/></div>
           <span className="task-card__time-date">{getCreateTime(props.info.date)}</span>
         </div>
-        <div className="task-card__type-yandex"><img src={yandex} alt="From Yandex"/></div>
-        <div className="task-card__type-trello"><img src={trello} alt="From Trello"/></div>
+        
+          
+      
+        
+        <div className="task-card__type"><img src={type} alt="Task type"/></div>
         <div className="task-card__delete" onClick={deleteTask}><img src={del} alt="Delete"/></div>
        
         

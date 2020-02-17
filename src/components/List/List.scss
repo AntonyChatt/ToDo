@@ -1,0 +1,24 @@
+.list {
+    padding-top: 15px;
+
+    width: 100%;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.list__info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.list__info-yandex,
+.list__info-trello{
+    width: 30px;
+}
+
+

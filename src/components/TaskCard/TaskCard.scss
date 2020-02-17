@@ -30,12 +30,6 @@
     width: 85%;
 }
 
-.task-card__add,
-.task-card__type-yandex,
-.task-card__type-trello{
-    display: none;
-}
-
 .task-card__time-calendar{
     width: 35px;
 }
@@ -72,3 +66,9 @@
     box-shadow: 0 0 10px rgba(0,255,127,.5);
 }
 
+.task-card__type{
+    position: absolute;
+    right: 50px;
+    bottom: 5px;
+    width: 30px;
+}

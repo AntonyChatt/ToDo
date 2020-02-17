@@ -29,6 +29,7 @@ function nuller (){
   yan=0;
 }
 
+//let list = props.testStore.filter(props.testStore => )
 
 function List (props) {
   length = props.testStore.length;

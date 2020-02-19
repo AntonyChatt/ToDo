@@ -1,0 +1,21 @@
+.add{
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    
+}
+
+.add__button{
+    position: absolute;
+    width: 45px;
+    right: 50px;
+    top: 0px;
+}
+
+.add__form-input{
+    position: absolute;
+    left: 50px;
+    border: none;
+    font-size: 24px;
+    width: 92vw;
+}

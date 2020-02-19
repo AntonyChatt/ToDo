@@ -2,6 +2,8 @@ import React from 'react';
 import './App.scss';
 import List from './components/List/List.js';
 
+import Add from './components/Add/Add.js'
+
 import {Provider} from 'react-redux';
 
 import {createStore} from 'redux';
@@ -101,18 +103,18 @@ const store = createStore(taskList, window.__REDUX_DEVTOOLS_EXTENSION__ && windo
 function App() {
   return (
     <div className="main">
-      <Provider store={store}>
-        <List label='To do' />
-        
-        
-      </Provider>
-      <Provider store = {store}>
-        <List label='In process' />
-      </Provider>
-      <Provider store = {store}>
-        <List label='Done'/>
-      </Provider>
+      <div className="main__add">
+        <Add />
+      </div>
+      <div className="main__content">      
+        <Provider store={store}>
+          <List label='To do' />
+          <List label='In process' />
+          <List label='Done'/>
+        </Provider>
     </div>
+    </div>
+    
   );
 }
 

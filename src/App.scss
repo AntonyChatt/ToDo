@@ -2,12 +2,28 @@ body {
     background-color: #6495ed;
 }
 
-.main {
+.main{
     background-image: url('./assets/bgi.jpg');
+    height: 100vh; 
+}
+
+.main__content {    
     display: flex;
-    height: 100vh;
+       
+}
+
+.main__add{
+    background-color: #fff;
+    color: #4B0082;
+    padding: 10px;
+    height: 30px;
+    
+    
 
     
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 ::-webkit-scrollbar-thumb {

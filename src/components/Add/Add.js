@@ -1,22 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Add.scss';
+
+import { connect } from 'react-redux';
 
 import add from '../../assets/new.svg';
 
-function Add () {
-    
+function Add (props) {
+    const [value, setValue] = useState('');   
      
+    function TASK (l){
+        let time = new Date();
+        return ({
+            label: l,
+            date: time,
+            type: 'Default',
+            status: 'To do',
+            id: time.toString()
+        });
+        }
+        function addTask(){
+            let task = new TASK(value);
+            props.onAdd(task);
+            setValue('');
+        }
+
        return (
         <div className="add">
             <div className="add__form">
-                <form>
+                <form onSubmit={event => {
+                    event.preventDefault();
+                    },
+                    addTask}>
                     <input className="add__form-input"
                     type ="text"
                     placeholder="Add task"
+                    onChange={event => {
+                        setValue(event.target.value);
+                      }}
+                      value={value}
                     />
+                    <input type="radio" name="manger" value="Default"/>
+                    <input type="radio" name="manger" value="Yandex"/>
+                    <input type="radio" name="manger" value="Trello"/>
                 </form>
             </div>             
-            <div className="add__button">
+            <div className="add__button" onClick={addTask} >
             <img src={add} alt="Add task"/>
             </div>
         </div>
@@ -25,4 +53,13 @@ function Add () {
        );
      }
      
-     export default Add;
+     export default connect (
+        state => ({
+          testStore: state
+        }),
+        dispatch => ({
+          onAdd: (task) =>{
+            dispatch({type: 'ADD_TASK', payload: task})
+          }
+        })
+      )(Add);

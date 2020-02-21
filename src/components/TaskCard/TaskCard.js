@@ -9,15 +9,15 @@ import trello from '../../assets/trello.svg';
 import nul from '../../assets/null.svg';
 import del from '../../assets/delete.svg';
 
+import { connect } from 'react-redux';
+
 let type;
 
 function editTask () {
   console.log('lets edit task card');
 }
 
-function deleteTask () {
-  console.log('are you shure?');
-}
+
 function setMonth(mon){
   const month = [
     'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
@@ -46,7 +46,11 @@ if (props.info.type === 'Default'){
    type = nul;
  }
 
+ function deleteTask () {
+  console.log('are you shure?');
+  props.onDelete(props.info.id);
 
+}
  
   
     return (
@@ -77,4 +81,13 @@ if (props.info.type === 'Default'){
     );
   }
   
-  export default Task;
+  export default connect (
+    state => ({
+      testStore: state
+    }),
+    dispatch => ({
+      onDelete: (id) =>{
+        dispatch({type: 'DELETE_TASK', payload: id})
+      }
+    })
+  )(Task);

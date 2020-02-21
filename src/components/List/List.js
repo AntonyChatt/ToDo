@@ -24,15 +24,19 @@ function counter (info){
     tre=tre +1;
   }
 }
+
 function nuller (){
   tre=0;
   yan=0;
 }
 
-
 function List (props) {
-  length = props.testStore.length;
-  props.testStore.forEach(element =>{
+  let content = props.testStore.filter(function (item) {
+    return (item.status === props.label);
+  });
+  
+  length = content.length;
+  content.forEach(element =>{
     counter(element);
   });
   
@@ -45,18 +49,12 @@ function List (props) {
           <span> {yan}</span>
           <div className="list__info-trello"><img src={trello} alt="Task Trello"/></div>
           <span> {tre}</span>
-        </div>
-        
+        </div>        
         <div className="task__list">
-            <div className="list">
-            
-              {props.testStore.map((data, index) =>
-                
-                <Task key={index} info={data} cell={callBack} />,
-
-                
-              )}
-              
+            <div className="list">            
+              {content.map((data, index) =>
+                <Task key={index} info={data} cell={callBack} />                
+              )}              
             </div>
         </div>
         {nuller()}

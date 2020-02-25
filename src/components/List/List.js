@@ -31,7 +31,7 @@ function nuller (){
 }
 
 function List (props) {
-  let content = props.testStore.filter(function (item) {
+  let content = props.testStore.tasks.filter(function (item) {
     return (item.status === props.label);
   });
   

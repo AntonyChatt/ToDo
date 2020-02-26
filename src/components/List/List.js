@@ -46,15 +46,18 @@ function List(props) {
         <span>
           {props.label} {length}
         </span>
-        <div className="list__info-yandex">
+        <div className="list__info-type">
+          <div className="list__info-type-yandex">
           <img src={yandex} alt="Task Yandex" />
         </div>
         <span> {yan}</span>
-        <div className="list__info-trello">
+        <div className="list__info-type-trello">
           <img src={trello} alt="Task Trello" />
         </div>
         <span> {tre}</span>
       </div>
+        </div>
+        
       <div className="task__list">
         <div className="list">
           {content.map((data, index) => (

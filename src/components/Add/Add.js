@@ -5,13 +5,9 @@ import { connect } from "react-redux";
 
 import add from "../../assets/new.svg";
 
-import yandex from "../../assets/yandex.svg";
-import trello from "../../assets/trello.svg";
-
 function Add(props) {
   const [value, setValue] = useState("");
   const [tracker, setTracker] = useState("Default");
-  console.log(tracker);
   function TASK(l) {
     let time = new Date();
     return {
@@ -28,18 +24,7 @@ function Add(props) {
     setValue("");
   }
 
-function def (){
- setTracker('Default');
-}
-function yan (){
-  setTracker('Yandex');
-}
-function tre (){
-  setTracker('Trello');
-}
-
   return (
-
     <div className="add">
       <div className="add__form">
         <form
@@ -59,18 +44,22 @@ function tre (){
             }}
             value={value}
           />
-          <div className="add__form-type">
-            <input type="radio" name="manger" value="Default" onChange={def}/>
-            <div className="add__form-type-ico">
-            <img src={yandex} alt="Task Yandex" />
-            </div>
-            <input type="radio" name="manger" value="Yandex" onChange={yan}/>
-            <div className="add__form-type-ico">
-            <img src={trello} alt="Task Trello " />
-            </div>
-            <input type="radio" name="manger" value="Trello" onChange={tre}/>
-          </div>
-          
+          <select
+            className="add__form-select"
+            onChange={event => {
+              setTracker(event.target.value);
+            }}
+          >
+            <option className="add__form-select-variant" value="Default">
+              Default
+            </option>
+            <option className="add__form-select-variant" value="Yandex">
+              Yandex
+            </option>
+            <option className="add__form-select-variant" value="Trello">
+              Trello
+            </option>
+          </select>
         </form>
       </div>
       <div className="add__button" onClick={addTask}>

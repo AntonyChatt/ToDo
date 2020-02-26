@@ -1,8 +1,8 @@
-import React from 'react';
-import './App.scss';
-import List from './components/List/List.js';
+import React from "react";
+import "./App.scss";
+import List from "./components/List/List.js";
 
-import Add from './components/Add/Add.js'
+import Add from "./components/Add/Add.js";
 
 function App() {
   return (
@@ -11,13 +11,11 @@ function App() {
         <Add />
       </div>
       <div className="main__content">
-          <List label='To do' />
-          <List label='In process' />
-          <List label='Done'/>
-        
+        <List label="To do" />
+        <List label="In process" />
+        <List label="Done" />
+      </div>
     </div>
-    </div>
-    
   );
 }
 
